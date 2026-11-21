@@ -1,518 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Yusuf Muhammad Sani | Data Science Portfolio</title>
-
-    <meta name="description" content="Data Science Student Portfolio - Yusuf Muhammad Sani">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071016">
+  <meta name="description" data-i18n-content="meta.description" content="Portfolio of Yusuf Muhammad Sani, a Data Science student seeking internship opportunities. Explore projects, skills, and contact details.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yusuf Muhammad Sani | Data Science Portfolio">
+  <meta property="og:description" content="Data Science student exploring analytics, machine learning, and data visualization.">
+  <meta property="og:url" content="https://abuufarhan.github.io/My-Porfolio/">
+  <link rel="canonical" href="https://abuufarhan.github.io/My-Porfolio/">
+  <title data-i18n="meta.title">Yusuf Muhammad Sani | Data Science Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/script.js" defer></script>
 </head>
-
 <body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skip">Skip to main content</a>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Yusuf Muhammad Sani — home">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span><span>Yusuf</span>
+      </a>
 
-    <!-- NAVBAR -->
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation" data-i18n-aria-label="nav.label">
+        <a href="#home" class="nav-link" data-i18n="nav.home">Home</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+        <a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
 
-    <nav class="navbar navbar-expand-lg fixed-top cyber-nav">
+      <div class="header-actions">
+        <div class="language-picker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <label class="sr-only" data-i18n="nav.chooseLanguage" for="languageSelect">Choose website language</label>
+          <select id="languageSelect" aria-label="Choose website language" data-i18n-aria-label="nav.chooseLanguage">
+            <option value="en">English</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="ar">العربية</option>
+            <option value="zh">简体中文</option>
+          </select>
+        </div>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-controls="siteNav" aria-expanded="false" aria-label="Open navigation" data-i18n-aria-label="nav.openMenu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-        <div class="container">
-
-            <a class="navbar-brand" href="#home">
-
-                <span>&lt;/&gt;</span>
-                Yusuf
-
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="heroName">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero.status">Open to Data Science internship opportunities</span></p>
+          <h1 id="heroName">Yusuf <span>Muhammad Sani</span></h1>
+          <p class="hero-role" data-i18n="hero.role">Data Science Student · Aspiring Data Analyst</p>
+          <p class="hero-description" data-i18n="hero.description">I enjoy turning complex information into clear insights through data analysis, visualization, and practical problem-solving.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects" data-i18n="hero.viewProjects">Explore my projects</a>
+            <a class="button button-outline" href="#contact" data-i18n="hero.contactMe">Get in touch</a>
+          </div>
+          <div class="social-links" aria-label="Professional profiles" data-i18n-aria-label="social.label">
+            <a href="https://github.com/Abuufarhan" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" data-i18n-aria-label="social.github" title="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.11.77-.24.77-.54v-2.1c-3.13.69-3.79-1.33-3.79-1.33-.51-1.31-1.25-1.66-1.25-1.66-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1 1.73 2.62 1.23 3.26.94.1-.73.39-1.23.71-1.51-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.51-1.43.11-2.97 0 0 .95-.31 3.1 1.15a10.8 10.8 0 0 1 5.64 0c2.15-1.46 3.1-1.15 3.1-1.15.62 1.54.23 2.69.11 2.97.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.04.76 2.1v3.1c0 .3.2.66.78.54A11.25 11.25 0 0 0 12 .75Z"/></svg>
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-
-                <i class="bi bi-list"></i>
-
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="menu">
-
-                <a class="nav-link" href="#home">Home</a>
-
-                <a class="nav-link" href="#about">About</a>
-
-                <a class="nav-link" href="#skills">Skills</a>
-
-                <a class="nav-link" href="#projects">Projects</a>
-
-                <a class="nav-link" href="#contact">Contact</a>
-
-            </div>
-
+            <a href="https://my.linkedin.com/in/yusuf-muhammad-sani-abu-farhan-9b7445338" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" data-i18n-aria-label="social.linkedin" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.76H5.19V9.9h2.74v8.86ZM6.56 8.69a1.59 1.59 0 1 1 0-3.18 1.59 1.59 0 0 1 0 3.18Zm12.2 10.07h-2.73v-4.31c0-1.03-.02-2.36-1.44-2.36-1.44 0-1.66 1.12-1.66 2.28v4.39H10.2V9.9h2.62v1.21h.04c.37-.69 1.25-1.42 2.57-1.42 2.75 0 3.26 1.8 3.26 4.14v4.93Z"/></svg>
+            </a>
+            <a href="mailto:muhammadyusufsani@gmail.com" aria-label="Email Yusuf" data-i18n-aria-label="social.email" title="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            </a>
+          </div>
         </div>
-
-    </nav>
-
-    <!-- HERO -->
-
-    <section id="home" class="hero">
-
-        <div class="hero-glow glow-1"></div>
-        <div class="hero-glow glow-2"></div>
-
-        <div class="container">
-
-            <div class="row align-items-center min-vh-100 g-5">
-
-                <!-- LEFT -->
-
-                <div class="col-lg-7 reveal">
-
-                    <div class="status-pill">
-
-                        �Seeking Data Science Internship
-
-                    </div>
-
-                    <h1>
-
-                        Yusuf
-                        <span>Muhammad Sani</span>
-
-                    </h1>
-
-                    <h2>
-
-                        <span id="typing"></span>
-
-                    </h2>
-
-                    <p class="hero-text">
-
-                        Data Science-focused Data Science student passionate
-                        about Data Analytics Enthusiast, Turning Data into Insights, Machine Learning, and Statistical
-                        Analysis.
-
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="#projects" class="btn primary-btn">
-
-                            View Projects
-
-                        </a>
-
-                        <a href="#contact" class="btn secondary-btn">
-
-                            Contact Me
-
-                        </a>
-
-                    </div>
-
-                    <div class="social-links">
-
-                        <a href="#">
-                            <i class="bi bi-github"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-
-                        <a href="#">
-                            <i class="bi bi-envelope-fill"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- RIGHT -->
-
-                <div class="col-lg-5 reveal">
-
-                    <div class="profile-card">
-
-                        <div class="avatar-wrapper">
-
-                            <img src="images/profile.jpg" alt="Profile" class="profile-image">
-
-                        </div>
-
-                        <div class="profile-info">
-
-                            <h3>Data Science Student</h3>
-
-                            <p>
-                                Data Analytics • Machine Learning • Artificial Intelligence • Data Visualization
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="profile-card">
+          <div class="portrait-ring"><img src="images/profile.jpg" width="330" height="330" alt="Portrait of Yusuf Muhammad Sani" data-i18n-alt="hero.photoAlt" decoding="async"></div>
+          <h2 data-i18n="hero.cardTitle">Data Science Student</h2>
+          <p data-i18n="hero.cardDetails">Data Analytics · Machine Learning · Data Visualization</p>
+          <div class="profile-divider" aria-hidden="true"></div>
+          <p class="location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="hero.location">Based in Malaysia</span></p>
         </div>
-
+      </div>
     </section>
 
-    <!-- ABOUT -->
-
-    <section id="about" class="section">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <span>About Me</span>
-
-                <h2>Who I Am</h2>
-
-            </div>
-
-            <div class="about-card reveal">
-
-                <p>
-
-                    I am a Data Science student passionate about transforming data into actionable insights. I have a
-                    growing interest in data analytics, machine learning and data visualization, and i am continuously
-                    developing my skills through academic projects and practical learning.
-
-
-                    My focus areas include Data Analysis, Machine Learning, Artifical Intelligence and Data
-                    Visualization.
-
-
-
-                </p>
-
-                <p>
-
-                    I enjoy analyzing data, uncovering patterns, solving problems, and using data-driven insights to
-                    support better decision-making. I am also passionate about learning new technologies and exploring
-                    machine learning techniques.
-
-                </p>
-
-            </div>
-
+    <section class="section" id="about" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="section-heading"><p class="section-kicker" data-i18n="about.label">About me</p><h2 id="aboutTitle" data-i18n="about.title">Learning, building, and growing with data</h2></div>
+        <div class="about-panel">
+          <p data-i18n="about.p1">I am a second-year Bachelor of Data Science (Honours) student at Albukhary International University in Malaysia. My interests include data analysis, machine learning, and finding practical solutions with technology.</p>
+          <p data-i18n="about.p2">I am building my foundation through university coursework, independent practice, and projects. I value clear communication, collaboration, and the opportunity to keep learning from experienced professionals.</p>
+          <div class="about-meta"><span class="meta-label" data-i18n="about.educationLabel">Education</span><strong>Albukhary International University</strong><span data-i18n="about.educationValue">Bachelor of Data Science (Honours) · Year 2</span></div>
         </div>
-
+      </div>
     </section>
 
-    <!-- SKILLS -->
-
-    <section id="skills" class="section dark-section">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <span>Skills</span>
-
-                <h2>Technical Expertise</h2>
-
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="skill-card">
-
-                        <i class="bi bi-shield-lock-fill"></i>
-
-                        <h4>Data Science</h4>
-
-                        <ul>
-
-                            <li>Data Analysis</li>
-                            <li>Machine Learning</li>
-                            <li>Artificial Intelligence</li>
-                            <li>Data Visualization</li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="skill-card">
-
-                        <i class="bi bi-code-slash"></i>
-
-                        <h4>Programming</h4>
-
-                        <ul>
-
-                            <li>Python</li>
-                            <li>Power BI</li>
-                            <li>SQL</li>
-                            <li>Microsoft Excel</li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="skill-card">
-
-                        <i class="bi bi-cpu-fill"></i>
-
-                        <h4>Tools</h4>
-
-                        <ul>
-
-                            <li>Python</li>
-                            <li>Power BI</li>
-                            <li>SQL</li>
-                            <li>Microsoft Excel</li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+    <section class="section section-alt" id="skills" aria-labelledby="skillsTitle">
+      <div class="container">
+        <div class="section-heading"><p class="section-kicker" data-i18n="skills.label">Skills</p><h2 id="skillsTitle" data-i18n="skills.title">What I'm learning and using</h2><p data-i18n="skills.intro">A developing toolkit for working with data and communicating results.</p></div>
+        <div class="cards-grid skills-grid">
+          <article class="panel skill-panel"><div class="panel-icon" aria-hidden="true">01</div><h3 data-i18n="skills.dataTitle">Data & analytics</h3><ul><li data-i18n="skills.data1">Data analysis</li><li data-i18n="skills.data2">Statistical analysis</li><li data-i18n="skills.data3">Data visualization</li><li data-i18n="skills.data4">Machine learning fundamentals</li></ul></article>
+          <article class="panel skill-panel"><div class="panel-icon" aria-hidden="true">02</div><h3 data-i18n="skills.programmingTitle">Programming</h3><ul><li>Python</li><li>SQL</li><li>Java</li></ul></article>
+          <article class="panel skill-panel"><div class="panel-icon" aria-hidden="true">03</div><h3 data-i18n="skills.toolsTitle">Tools & platforms</h3><ul><li>Microsoft Excel</li><li>Power BI</li><li>VS Code</li><li>GitHub</li></ul></article>
         </div>
-
+      </div>
     </section>
 
-    <!-- PROJECTS -->
-
-    <section id="projects" class="section">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <span>Projects</span>
-
-                <h2>Featured Data Science Projects</h2>
-
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-
-                            <i class="bi bi-shield-check"></i>
-
-                        </div>
-
-                        <h4>Phishing Detection System</h4>
-
-                        <p>
-
-                            Machine learning-based phishing website detection
-                            using URL and HTML feature analysis.
-
-                        </p>
-
-                        <div class="tech-tags">
-
-                            <span>Python</span>
-                            <span>ML</span>
-                            <span>Power BI</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-
-                            <i class="bi bi-diagram-3"></i>
-
-                        </div>
-
-                        <h4>Network Traffic Analyzer</h4>
-
-                        <p>
-
-                            Security monitoring tool that analyzes network
-                            traffic and detects suspicious activities.
-
-                        </p>
-
-                        <div class="tech-tags">
-
-                            <span>Python</span>
-                            <span>Power BI</span>
-                            <span>SQL</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-4 reveal">
-
-                    <div class="project-card">
-
-                        <div class="project-icon">
-
-                            <i class="bi bi-bug"></i>
-
-                        </div>
-
-                        <h4>Vulnerability Assessment Lab</h4>
-
-                        <p>
-
-                            Data analysis project using Python and Power BI
-                            to visualize and interpret complex datasets.
-
-                        </p>
-
-                        <div class="tech-tags">
-
-                            <span>Python</span>
-                            <span>Power BI</span>
-                            <span>SQL</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+    <section class="section" id="projects" aria-labelledby="projectsTitle">
+      <div class="container">
+        <div class="section-heading"><p class="section-kicker" data-i18n="projects.label">Projects</p><h2 id="projectsTitle" data-i18n="projects.title">Selected work</h2><p data-i18n="projects.intro">Areas I have explored through projects and practical learning.</p></div>
+        <div class="cards-grid project-grid">
+          <article class="panel project-panel"><div class="project-number" aria-hidden="true">01 /</div><h3 data-i18n="projects.p1.title">Phishing Detection System</h3><p data-i18n="projects.p1.description">Exploring phishing detection through URL and HTML feature analysis and machine learning concepts.</p><div class="tags"><span>Python</span><span data-i18n="projects.tagML">Machine Learning</span></div></article>
+          <article class="panel project-panel"><div class="project-number" aria-hidden="true">02 /</div><h3 data-i18n="projects.p2.title">Network Traffic Analyzer</h3><p data-i18n="projects.p2.description">Exploring how traffic patterns can be examined to identify unusual network activity.</p><div class="tags"><span>Python</span><span data-i18n="projects.tagAnalysis">Data Analysis</span></div></article>
+          <article class="panel project-panel"><div class="project-number" aria-hidden="true">03 /</div><h3 data-i18n="projects.p3.title">Vulnerability Assessment Lab</h3><p data-i18n="projects.p3.description">Learning about vulnerability assessment and how to document findings clearly in a lab setting.</p><div class="tags"><span data-i18n="projects.tagSecurity">Security</span><span data-i18n="projects.tagResearch">Research</span></div></article>
         </div>
-
+      </div>
     </section>
 
-    <!-- CONTACT -->
-
-    <section id="contact" class="section dark-section">
-
-        <div class="container">
-
-            <div class="section-title reveal">
-
-                <span>Contact</span>
-
-                <h2>Let's Secure The Future Together</h2>
-
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-lg-5 reveal">
-
-                    <div class="contact-info">
-
-                        <h4>Get In Touch</h4>
-
-                        <p>
-                            <i class="bi bi-envelope-fill"></i>
-                            <a href="mailto:muhammadyusufsani@gmail.com">muhammadyusufsani@gmail.com</a>
-                        </p>
-
-                        <p>
-                            <i class="bi bi-linkedin"></i>
-                            <a href="https://my.linkedin.com/in/yusuf-muhammad-sani-abu-farhan-9b7445338"
-                                target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        </p>
-
-                        <p>
-                            <i class="bi bi-github"></i>
-                            <a href="https://github.com/abufarhanmuhammadsani-jpg" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                        </p>
-
-                        <p>
-                            <i class="bi bi-geo-alt-fill"></i>
-                            Malaysia
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <div class="col-lg-7 reveal">
-
-                    <form class="contact-form" onsubmit="sendMessage(event)">
-
-                        <input type="text" class="form-control mb-3" placeholder="Your Name" required>
-
-                        <input type="email" class="form-control mb-3" placeholder="Your Email" required>
-
-                        <textarea class="form-control mb-3" rows="5" placeholder="Your Message" required></textarea>
-
-                        <button class="btn primary-btn w-100">
-
-                            Send Message
-
-                        </button>
-
-                        <p id="formMessage" class="mt-3"></p>
-
-                    </form>
-
-                </div>
-
-            </div>
-
+    <section class="section section-alt" id="contact" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="section-heading"><p class="section-kicker" data-i18n="contact.label">Contact</p><h2 id="contactTitle" data-i18n="contact.title">Let's connect</h2><p data-i18n="contact.intro">I welcome conversations about internships, data projects, and opportunities to learn.</p></div>
+        <div class="contact-grid">
+          <div class="panel contact-details"><h3 data-i18n="contact.detailsTitle">Contact details</h3><p data-i18n="contact.detailsText">The easiest way to reach me is by email or LinkedIn.</p><a href="mailto:muhammadyusufsani@gmail.com" class="contact-link">muhammadyusufsani@gmail.com</a><a href="https://my.linkedin.com/in/yusuf-muhammad-sani-abu-farhan-9b7445338" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn <span aria-hidden="true">↗</span></a><a href="https://github.com/Abuufarhan" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub <span aria-hidden="true">↗</span></a></div>
+          <form id="contactForm" class="panel contact-form">
+            <h3 data-i18n="contact.formTitle">Write an email</h3>
+            <label for="contactName" data-i18n="contact.name">Your name</label><input id="contactName" name="name" type="text" required autocomplete="name" maxlength="100" placeholder="Your name" data-i18n-placeholder="contact.name">
+            <label for="contactEmail" data-i18n="contact.email">Your email</label><input id="contactEmail" name="email" type="email" required autocomplete="email" maxlength="160" placeholder="Your email" data-i18n-placeholder="contact.email">
+            <label for="contactMessage" data-i18n="contact.message">Your message</label><textarea id="contactMessage" name="message" required rows="4" maxlength="2500" placeholder="Your message" data-i18n-placeholder="contact.message"></textarea>
+            <button class="button button-primary" type="submit" data-i18n="contact.compose">Open email app</button>
+            <p class="form-note" data-i18n="contact.note">This opens your email app with a draft. It does not send a message automatically.</p>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
         </div>
-
+      </div>
     </section>
+  </main>
 
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p>
-
-            © 2026 Yusuf Muhammad Sani |
-            Cybersecurity Portfolio
-
-        </p>
-
-    </footer>
-
-    <button id="topBtn">
-
-        <i class="bi bi-arrow-up"></i>
-
-    </button>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script src="js/script.js"></script>
-
+  <footer class="footer"><div class="container footer-inner"><p>© <span id="year">2026</span> Yusuf Muhammad Sani. <span data-i18n="footer.rights">All rights reserved.</span></p><a href="#home" data-i18n="footer.backToTop">Back to top ↑</a></div></footer>
 </body>
-
 </html>

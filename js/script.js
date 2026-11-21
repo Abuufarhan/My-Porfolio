@@ -1,264 +1,68 @@
-/* ====================================
-   REVEAL ON SCROLL
-==================================== */
+/* Portfolio interactions — no external JavaScript libraries required. */
+(() => {
+  'use strict';
+  const menuButton = document.getElementById('menuToggle');
+  const nav = document.getElementById('siteNav');
+  const navLinks = Array.from(nav.querySelectorAll('a[href^="#"]'));
 
-const revealElements = document.querySelectorAll(".reveal");
+  function updateMenuLabel() {
+    const t = window.portfolioT || (key => key);
+    menuButton.setAttribute('aria-label', t(nav.classList.contains('is-open') ? 'nav.closeMenu' : 'nav.openMenu'));
+  }
+  function closeMenu() {
+    nav.classList.remove('is-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    updateMenuLabel();
+  }
+  menuButton.addEventListener('click', () => {
+    const open = !nav.classList.contains('is-open');
+    nav.classList.toggle('is-open', open);
+    menuButton.setAttribute('aria-expanded', String(open));
+    updateMenuLabel();
+  });
+  navLinks.forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !menuButton.contains(e.target)) closeMenu();
+  });
 
-function revealOnScroll() {
+  // Highlight the current section without scrolling the page manually.
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach(link => {
+        const selected = link.getAttribute('href') === '#' + visible.target.id;
+        link.classList.toggle('is-active', selected);
+        if (selected) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
+    document.querySelectorAll('main > section[id]').forEach(section => observer.observe(section));
+  }
 
-    revealElements.forEach((element) => {
+  const year = document.getElementById('year');
+  if (year) year.textContent = String(new Date().getFullYear());
 
-        const windowHeight = window.innerHeight;
-        const elementTop = element.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - 100) {
-            element.classList.add("active");
-        }
-
-    });
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
-/* ====================================
-   BACK TO TOP BUTTON
-==================================== */
-
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 400) {
-
-        topBtn.style.display = "block";
-
-    } else {
-
-        topBtn.style.display = "none";
-
-    }
-
-});
-
-topBtn.addEventListener("click", () => {
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-});
-
-/* ====================================
-   CONTACT FORM DEMO
-==================================== */
-
-function sendMessage(event) {
-
+  // GitHub Pages is static; mailto composes a draft instead of pretending to send it.
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', event => {
     event.preventDefault();
-
-    const message = document.getElementById("formMessage");
-
-    message.innerHTML =
-        "✅ Message sent successfully! (Demo Portfolio Form)";
-
-    message.style.color = "#00FF9D";
-
-    event.target.reset();
-
-}
-
-/* ====================================
-   Data Science TYPEWRITER
-==================================== */
-
-const typingElement = document.getElementById("typing");
-
-const words = [
-
-    "Data Science Student",
-    "Future Data Analyst",
-    "Machine Learning Enthusiast",
-    "Statistical Analysis Specialist",
-    "AI Researcher",
-    "Digital Forensics Enthusiast"
-
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typeEffect() {
-
-    const currentWord = words[wordIndex];
-
-    if (!deleting) {
-
-        typingElement.textContent =
-            currentWord.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-
-            deleting = true;
-
-            setTimeout(typeEffect, 1800);
-
-            return;
-
-        }
-
-    } else {
-
-        typingElement.textContent =
-            currentWord.substring(0, charIndex - 1);
-
-        charIndex--;
-
-        if (charIndex === 0) {
-
-            deleting = false;
-
-            wordIndex++;
-
-            if (wordIndex >= words.length) {
-
-                wordIndex = 0;
-
-            }
-
-        }
-
-    }
-
-    setTimeout(typeEffect, deleting ? 50 : 90);
-
-}
-
-typeEffect();
-
-/* ====================================
-   ACTIVE NAVIGATION HIGHLIGHT
-==================================== */
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.clientHeight;
-
-        if (pageYOffset >= sectionTop) {
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active-link");
-
-        if (
-            link.getAttribute("href")
-                .includes(current)
-        ) {
-
-            link.classList.add("active-link");
-
-        }
-
-    });
-
-});
-
-/* ====================================
-   SMOOTH SECTION TRANSITIONS
-==================================== */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target =
-            document.querySelector(this.getAttribute("href"));
-
-        target.scrollIntoView({
-
-            behavior: "smooth"
-
-        });
-
-    });
-
-});
-
-/* ====================================
-   PROFILE CARD HOVER EFFECT
-==================================== */
-
-const profileCard =
-    document.querySelector(".profile-card");
-
-if (profileCard) {
-
-    profileCard.addEventListener("mousemove", (e) => {
-
-        const rect =
-            profileCard.getBoundingClientRect();
-
-        const x =
-            e.clientX - rect.left;
-
-        const y =
-            e.clientY - rect.top;
-
-        const rotateY =
-            ((x / rect.width) - 0.5) * 10;
-
-        const rotateX =
-            ((y / rect.height) - 0.5) * -10;
-
-        profileCard.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)`;
-
-    });
-
-    profileCard.addEventListener("mouseleave", () => {
-
-        profileCard.style.transform =
-            "perspective(1000px) rotateX(0) rotateY(0)";
-
-    });
-
-}
-
-/* ====================================
-   CONSOLE EASTER EGG
-==================================== */
-
-console.log(`
-╔══════════════════════════════════╗
-║      Data Science PORTFOLIO     ║
-║      Yusuf Muhammad Sani        ║
-╚══════════════════════════════════╝
-
-Status: Seeking Internship
-Focus: Data Science
-Skills: Python | Machine Learning | Statistics
-
-`);
+    if (!form.reportValidity()) return;
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    if (!name || !email || !message) return;
+    const t = window.portfolioT || (key => key);
+    const subject = encodeURIComponent(t('contact.mailSubject') + ' — ' + name);
+    const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
+    document.getElementById('formStatus').textContent = t('contact.opening');
+    window.location.href = `mailto:muhammadyusufsani@gmail.com?subject=${subject}&body=${body}`;
+  });
+  window.addEventListener('portfolio:languagechange', () => {
+    updateMenuLabel();
+    const status = document.getElementById('formStatus');
+    if (status) status.textContent = '';
+  });
+})();
